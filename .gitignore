@@ -1,5 +1,6 @@
 /venv
 /clean_data.csv
-data/*
+/data/*
 !data/*.dvc
-models
+/models
+
