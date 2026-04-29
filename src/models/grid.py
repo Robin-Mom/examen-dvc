@@ -5,7 +5,7 @@ import pandas as pd
 import joblib
 
 # 1. import des données
-X_train_scaled = pd.read_csv("data/processed_data/X_train_scaled.csv") 
+X_train_scaled = pd.read_csv("data/normalized_data/X_train_scaled.csv") 
 y_train = pd.read_csv("data/processed_data/y_train.csv" )
 y_train = y_train.values.ravel()
 
@@ -38,5 +38,5 @@ print("Meilleur score (MSE négatif) :", grid.best_score_)
 
 # 7. export
 
-os.makedirs("models", exist_ok=True)
-joblib.dump(grid.best_params_, "models/best_params.pkl")
+os.makedirs("models/best_params", exist_ok=True)
+joblib.dump(grid.best_params_, "models/best_params/best_params.pkl")

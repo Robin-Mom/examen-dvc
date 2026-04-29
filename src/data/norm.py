@@ -24,8 +24,8 @@ X_test_scaled = scaler.transform(X_test)
 X_train_scaled_df = pd.DataFrame(X_train_scaled)
 X_test_scaled_df = pd.DataFrame(X_test_scaled)
 
-os.makedirs("data/processed_data", exist_ok=True)
-X_train_scaled_df.to_csv("data/processed_data/X_train_scaled.csv")
-X_test_scaled_df.to_csv("data/processed_data/X_test_scaled.csv")
+os.makedirs("data/normalized_data", exist_ok=True)
+X_train_scaled_df.to_csv("data/normalized_data/X_train_scaled.csv")
+X_test_scaled_df.to_csv("data/normalized_data/X_test_scaled.csv")
 
 

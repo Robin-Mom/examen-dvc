@@ -6,8 +6,8 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 # chargement 
 
-model = joblib.load("models/RF.pkl")
-X_test_scaled = pd.read_csv("data/processed_data/X_test_scaled.csv") 
+model = joblib.load("models/best_models/RF.pkl")
+X_test_scaled = pd.read_csv("data/normalized_data/X_test_scaled.csv") 
 y_test = pd.read_csv("data/processed_data/y_test.csv" )
 y_test = y_test.values.ravel()
 
@@ -33,6 +33,6 @@ os.makedirs("metrics", exist_ok=True)
 with open("metrics/scores.json", "w") as f:
     json.dump(scores, f, indent=4)
 
-os.makedirs("data/processed_data", exist_ok=True)
+os.makedirs("data/predicted_data", exist_ok=True)
 y_pred_df = pd.DataFrame(y_pred)
-y_pred_df.to_csv("data/processed_data/predicted.csv")
+y_pred_df.to_csv("data/predicted_data/predicted.csv")
