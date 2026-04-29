@@ -1,3 +1,4 @@
+import os
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestRegressor
 import pandas as pd
@@ -37,4 +38,5 @@ print("Meilleur score (MSE négatif) :", grid.best_score_)
 
 # 7. export
 
+os.makedirs("models", exist_ok=True)
 joblib.dump(grid.best_params_, "models/best_params.pkl")

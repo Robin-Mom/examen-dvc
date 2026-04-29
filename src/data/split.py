@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
@@ -23,6 +24,8 @@ y_train_df = pd.DataFrame(y_train)
 y_test_df = pd.DataFrame(y_test)
 
 # Export en CSV
+
+os.makedirs("data/processed_data", exist_ok=True)
 X_train.to_csv("data/processed_data/X_train.csv", index=False)
 X_test.to_csv("data/processed_data/X_test.csv", index=False)
 y_train_df.to_csv("data/processed_data/y_train.csv", index=False)

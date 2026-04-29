@@ -1,3 +1,4 @@
+import os
 import joblib
 from sklearn.ensemble import RandomForestRegressor
 import pandas as pd
@@ -16,5 +17,6 @@ model.fit(X_train_scaled, y_train)
 
 # export
 
+os.makedirs("models", exist_ok=True)
 joblib.dump(model, "models/RF.pkl")
 

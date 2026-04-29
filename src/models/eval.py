@@ -1,3 +1,4 @@
+import os
 import joblib
 import pandas as pd
 import json
@@ -28,8 +29,10 @@ scores = {
     "r2": r2_score(y_test, y_pred)
 }
 
+os.makedirs("metrics", exist_ok=True)
 with open("metrics/scores.json", "w") as f:
     json.dump(scores, f, indent=4)
 
+os.makedirs("data/processed_data", exist_ok=True)
 y_pred_df = pd.DataFrame(y_pred)
 y_pred_df.to_csv("data/processed_data/predicted.csv")
