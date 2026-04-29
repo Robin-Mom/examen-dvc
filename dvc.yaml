@@ -1,0 +1,41 @@
+stages:
+  split:
+    cmd: python src/data/split.py
+    deps:
+    - data/raw_data
+    - src/data/split.py
+    outs:
+    - data/processed_data
+  normalize:
+    cmd: python src/data/norm.py
+    deps:
+    - data/processed_data
+    - src/data/norm.py
+    outs:
+    - data/normalized_data
+  gridSearch:
+    cmd: python src/models/grid.py
+    deps:
+    - data/normalized_data
+    - data/processed_data
+    - src/models/grid.py
+    outs:
+    - models/best_params
+  train:
+    cmd: python src/models/train.py
+    deps:
+    - data/normalized_data
+    - data/processed_data
+    - models/best_params
+    - src/models/train.py
+    outs:
+    - models/best_models
+  eval:
+    cmd: python src/models/eval.py
+    deps:
+    - data/normalized_data
+    - data/processed_data
+    - models/best_models
+    - src/models/eval.py
+    outs:
+    - data/predicted_data

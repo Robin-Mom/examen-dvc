@@ -2,5 +2,5 @@
 /clean_data.csv
 /data/*
 !data/*.dvc
-/models
 
+/models
